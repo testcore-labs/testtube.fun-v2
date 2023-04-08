@@ -1,4 +1,4 @@
--- Adminer 4.8.1 MySQL 10.3.38-MariaDB-0ubuntu0.20.04.1 dump
+-- qzip
 
 SET NAMES utf8;
 SET time_zone = '+00:00';
@@ -7,7 +7,6 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-DROP DATABASE IF EXISTS `testtube`;
 CREATE DATABASE `testtube` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `testtube`;
 
@@ -20,7 +19,7 @@ CREATE TABLE `comments` (
   `isReply` int(11) DEFAULT NULL,
   `date` int(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
 DROP TABLE IF EXISTS `ratings`;
@@ -31,6 +30,16 @@ CREATE TABLE `ratings` (
   `video` varchar(128) NOT NULL,
   `date` int(32) NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+
+DROP TABLE IF EXISTS `strikes`;
+CREATE TABLE `strikes` (
+  `id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `admin` int(11) NOT NULL,
+  `note` varchar(1000) NOT NULL,
+  `date` int(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
@@ -41,7 +50,7 @@ CREATE TABLE `subscribers` (
   `user` int(11) NOT NULL,
   `date` int(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=196615 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
 DROP TABLE IF EXISTS `users`;
@@ -49,7 +58,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(25) NOT NULL,
   `password` varchar(512) NOT NULL,
-  `bio` varchar(1000) DEFAULT NULL,
+  `bio` varchar(250) DEFAULT NULL,
   `admin` int(11) NOT NULL DEFAULT 0,
   `verified` int(11) NOT NULL DEFAULT 0,
   `custom` mediumtext DEFAULT NULL,
@@ -58,7 +67,7 @@ CREATE TABLE `users` (
   `banner` varchar(2500) NOT NULL DEFAULT '/assets/img/banner.png',
   `date` int(64) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
 DROP TABLE IF EXISTS `videos`;
@@ -66,7 +75,7 @@ CREATE TABLE `videos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `watch` varchar(128) NOT NULL COMMENT 'Here goes the value!',
   `title` varchar(100) NOT NULL,
-  `description` text DEFAULT NULL,
+  `description` varchar(5000) DEFAULT NULL,
   `creator` int(11) NOT NULL,
   `featured` int(11) NOT NULL DEFAULT 0,
   `custom` varchar(2500) DEFAULT NULL,
@@ -76,7 +85,7 @@ CREATE TABLE `videos` (
   `thumbnail` longblob NOT NULL DEFAULT '\'/assets/img/thumbnail.png\'',
   `date` int(64) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
 DROP TABLE IF EXISTS `views`;
@@ -86,7 +95,7 @@ CREATE TABLE `views` (
   `video` varchar(128) NOT NULL,
   `date` int(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
--- 2023-04-07 06:26:35
+-- 2023-04-08 13:34:28
