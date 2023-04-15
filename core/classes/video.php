@@ -255,7 +255,7 @@ class Video {
 		$timepassed = abs(time() - ($comments["date"]));
 		if($timepassed <= 30) { 
 			if($timepassed <= 1) { $seconds = "second"; } else { $seconds = "seconds"; }
-			return "<span>Wait atleast $timepassed ".$seconds." before making more comments.</span>";
+			return "<span>Wait atleast ".(30 - $timepassed)." ".$seconds." before making more comments.</span>";
 		}
 	    }
 		if(!empty($text)) {
